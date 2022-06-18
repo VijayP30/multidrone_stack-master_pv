@@ -1,0 +1,9 @@
+<launch>
+	<arg name="localization_source" default="phasespace" />
+
+	<include file="$(find phasespace)/world_to_phasespace_pub.launch" />
+	<node pkg="rm_stuff" type="phasespace_to_rviz" name="phasespace_to_rviz_pub" args="$(arg localization_source)" output="screen"/>
+	<node name="rviz" pkg="rviz" type="rviz"
+        args="-d $(find rm_stuff)/config/localization.rviz">
+    </node>
+</launch>

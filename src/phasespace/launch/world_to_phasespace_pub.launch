@@ -1,0 +1,6 @@
+<launch>
+	<node pkg="tf" type="static_transform_publisher" name="world_to_phasespace_pub" args="0 0 0 0 0 1.57 world phasespace 100"/>
+	<node pkg="tf" type="static_transform_publisher" name="phasespace_to_tag_pub" args="0.82302166748 0.0224069824219 -0.965068359375 0.00149280577898 -0.0702440664172 0.00282946228981 -0.997524738312 phasespace gt_tag 100"/>
+	<node pkg="tf" type="static_transform_publisher" name="tag_to_zup_pub" args="0 0 0 0 0.7071068 0.7071068 0 gt_tag gt_tag_zup 100"/>
+
+</launch>

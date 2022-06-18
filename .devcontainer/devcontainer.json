@@ -1,0 +1,45 @@
+	// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+	// https://github.com/microsoft/vscode-dev-containers/tree/v0.194.0/containers/ubuntu
+	{
+		"name": "ROS Kinetic + Ubuntu 16.04 + Nvidia",
+		"build": {
+			"dockerfile": "Dockerfile",
+			// Update 'VARIANT' to pick an Ubuntu version: focal, bionic
+			"args": {
+				"VARIANT": "focal"
+			}
+		},
+		// Set *default* container specific settings.json values on container create.
+		"settings": {},
+		// Add the IDs of extensions you want installed when the container is created.
+		"extensions": [
+			"ms-vscode.cpptools",
+			"ms-iot.vscode-ros"
+			// "k--kato.intellij-idea-keybindings"
+		],
+		// Use 'forwardPorts' to make a list of ports inside the container available locally.
+		// "forwardPorts": [],
+		// Use 'postCreateCommand' to run commands after the container is created.
+		"postCreateCommand": "sudo chgrp uinput /dev/uinput && sudo chmod g+rwx /dev/uinput && rosdep install --from-paths src --ignore-src -r -y",
+		// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+		"remoteUser": "ros",
+		"runArgs": [
+			"--net",
+			"host",
+			"--ipc",
+			"host",
+			"--gpus",
+			"all",
+			"-e",
+			"DISPLAY=${env:DISPLAY}",
+			"--env",
+			"QT_X11_NO_MITSHM=1",
+			"-v",
+			"/tmp/.X11-unix:/tmp/.X11-unix:rw",
+			"-v",
+			"/dev/bus/usb:/dev/bus/usb",
+			"--device",
+			"/dev/dri",
+			"--privileged"
+		]
+	}

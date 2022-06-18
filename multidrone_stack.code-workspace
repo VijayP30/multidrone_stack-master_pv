@@ -1,0 +1,26 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"*.yml.j2": "yaml",
+			"memory": "cpp",
+			"deque": "cpp",
+			"string": "cpp",
+			"vector": "cpp",
+			"*.ipp": "cpp",
+			"limits": "cpp"
+		},
+		"python.autoComplete.extraPaths": [
+			"/workspaces/multidrone_stack/devel/lib/python2.7/dist-packages",
+			"/opt/ros/kinetic/lib/python2.7/dist-packages"
+		],
+		"python.analysis.extraPaths": [
+			"/workspaces/multidrone_stack/devel/lib/python2.7/dist-packages",
+			"/opt/ros/kinetic/lib/python2.7/dist-packages"
+		]
+	}
+}

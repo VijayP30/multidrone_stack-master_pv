@@ -1,0 +1,1 @@
+rosrun tf static_transform_publisher  0.170829 -0.0605029 -0.0924762  0.669839 -0.23261 0.643091 0.289209 tracker1 camera_frame 100

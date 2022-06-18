@@ -1,0 +1,7 @@
+build/
+devel/
+logs/
+bag_files/
+.vscode/
+.catkin_tools/
+*.bag

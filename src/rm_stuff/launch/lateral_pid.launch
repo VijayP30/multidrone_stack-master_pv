@@ -1,0 +1,22 @@
+<launch>
+    <arg name="enable_phasespace" default="false" />
+
+    <param name="/drone_position_controller/xy/kP" type="double" value="3.2" />    
+    <param name="/drone_position_controller/xy/kD" type="double" value="12" /> 
+
+    <param name="/drone_position_controller/z/kP" type="double" value="3.2" />     
+    <param name="/drone_position_controller/z/kD" type="double" value="25.0" />     
+
+    <param name="/drone_position_controller/yaw/kP" type="double" value="30.0" />     
+    <param name="/drone_position_controller/yaw/kD" type="double" value="0.0" />     
+    
+    <param name="/drone_position_controller/desiredX" type="double" value="0.0" /> 
+    <param name="/drone_position_controller/desiredY" type="double" value="0.663" /> 
+    <param name="/drone_position_controller/desiredZ" type="double" value="1.5" /> 
+    <param name="/drone_position_controller/desiredYaw" type="double" value="0" /> 
+
+    <node pkg="rm_stuff" type="drone_lateral_controller" name="drone_lateral_controller" output="screen" args="$(eval 'phasespace' if arg('enable_phasespace') else 'dji_sdk')"></node>
+    <!-- <node pkg="rosbag" type="record" name="rosbag_record_lateral_controller" 
+          args="record -o $(find rm_stuff)/../../bag_ /test_failsafe/acceleration /test_failsafe/error /test_failsafe/pose /test_failsafe/setpoint /test_failsafe/velocity /test_failsafe/desired_vs_actual">
+    </node> -->
+</launch>

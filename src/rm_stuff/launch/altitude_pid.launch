@@ -1,0 +1,10 @@
+<launch>
+    <arg name="enable_phasespace" default="false" />
+
+    <param name="/drone_altitude_controller/kP" type="double" value="3.2" />
+    <param name="/drone_altitude_controller/kI" type="double" value="0" />
+    <param name="/drone_altitude_controller/kD" type="double" value="25.0" />
+    <param name="/drone_altitude_controller/height" type="double" value="2.0" />
+
+    <node pkg="rm_stuff" type="drone_altitude_controller" name="drone_altitude_controller" output="screen" args="$(eval 'phasespace' if arg('enable_phasespace') else 'dji_sdk')"></node>
+</launch>

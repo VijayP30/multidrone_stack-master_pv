@@ -1,0 +1,10 @@
+<launch>
+    <arg name="enable_phasespace" default="false" />
+
+    <arg name="phasespace_url" default="cs-phasespace.cs.umn.edu" />
+    <arg name="drone_marker_filename" default="$(find phasespace)/drone_markers.json" />
+
+    <include file="$(find dji_sdk)/launch/sdk_manifold.launch" />
+    <node pkg="phasespace" type="rigid_tracker" name="rigid_tracker" args="$(arg phasespace_url) $(arg drone_marker_filename)" if="$(arg enable_phasespace)" output="screen"></node>
+    <node pkg="dji_sdk_demo" type="dji_sdk_client" name="dji_sdk_client" output="screen"></node>
+</launch>

@@ -1,0 +1,12 @@
+<launch>
+
+    <include file="$(find airsim_ros_pkgs)/launch/airsim_node.launch" />
+    <node pkg="airsim_drone_control" type="airsim_drone_control_move_drone" name="airsim_drone_control_move_drone" output="screen"/>
+    <node pkg="airsim_drone_control" type="airsim_drone_control_ground_truth_relative_tag_pose" name="airsim_drone_control_ground_truth_relative_tag_pose" output="screen"/>
+    <include file="$(find aprilslam)/launch/slam.launch">
+        <arg name="camera_topic" value="/camera" />
+        <arg name="tag_size" value="2.603" />
+    </include>
+
+	<node pkg="tf" type="static_transform_publisher" name="world_to_tag_ground_truth_pub" args="8 0 -1.2 -0.7071068 0.7071068 0 0 world_ned gt_tag 100"/>
+</launch>

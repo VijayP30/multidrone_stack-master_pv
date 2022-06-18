@@ -1,0 +1,5 @@
+geometry_msgs/Vector3 desired
+geometry_msgs/Vector3 actual
+float64 desiredMagnitude
+float64 actualMagnitude
+float64 limit
